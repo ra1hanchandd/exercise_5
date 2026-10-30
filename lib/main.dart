@@ -1,71 +1,73 @@
 import 'package:flutter/material.dart';
-
-class ProfileInfo extends StatelessWidget {
-  ProfileInfo({super.key});
-
-  final String userName = "Muhammad Raihan Chandra Pratama";
-  final String role = "Student of Global Institute";
-
-  final List<String> experiences = [
-    "Ketua Pelaksana PKKMB 2026",
-    "Ketua UKM Core IT 2025",
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ProfileAvatar(userName: userName, role: role),
-
-        const SizedBox(height: 6),
-
-        Text(
-          userName,
-          style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-        const SizedBox(height: 8),
-        Text(
-          role,
-          style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-          textAlign: TextAlign.center,
-        ),
-      ],
-    );
-  }
+void main() {
+  runApp(MainApp());
 }
-
-class ProfileAvatar extends StatelessWidget {
-  final String userName;
-  final String role;
-
-  const ProfileAvatar({super.key, required this.userName, required this.role});
-
+class MainApp extends StatelessWidget {
+  MainApp({super.key});
+  
+  final String userName = 'Muhammad Raihan Chandra Pratama';
+  final String role = 'Ketua';
+  final List<String> experiences = [
+    'Ketua Pelaksana PKKMB 2026', 
+  ];
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        children: [
-          const CircleAvatar(
-            radius: 50,
-            backgroundColor: Colors.grey,
-            child: Icon(Icons.person, size: 50, color: Colors.white),
+return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Aplikasi Profil',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Profil Pengguna'),
+          centerTitle: true,
+          backgroundColor: Colors.blueAccent,
+          foregroundColor: Colors.white,
+        ),
+        body: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [         
+              const CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.grey,
+                child: Icon(Icons.person, size: 50, color: Colors.white),
+              ),
+              
+            
+              const SizedBox(width: 16),
+              
+              Column(
+                children: [
+                  Text(
+                    userName,
+                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    role,
+                    style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
+              
+              ElevatedButton.icon(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Fitur edit belum aktif pada modul statis.'))
+                  );
+                },
+                icon: const Icon(Icons.edit),
+                label: const Text('Edit Profil'),
+              ),
+              const SizedBox(height: 24),
+            ],
           ),
-          const SizedBox(height: 16),
-          ElevatedButton.icon(
-            onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text("Fitur Edit belum tersedia saat ini."),
-                ),
-              );
-            },
-            icon: const Icon(Icons.edit),
-            label: const Text("Edit Profile"),
-          ),
-          const SizedBox(height: 24),
-        ],
+        ),
       ),
     );
   }
