@@ -54,6 +54,49 @@ return MaterialApp(
                 ],
               ),
               const SizedBox(height: 24),
+
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Column(
+                    children: [
+                      const Text(
+                        '12',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Projects'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      const Text(
+                        '120',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Followers'),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      const Text(
+                        '80',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Text('Following'),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(height: 24),
               
               ElevatedButton.icon(
                 onPressed: () {
