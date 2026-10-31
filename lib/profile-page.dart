@@ -70,3 +70,39 @@ class ProfileAvatar extends StatelessWidget {
     );
   }
 }
+
+class StatItem extends StatelessWidget {
+  final String value;
+  final String label;
+
+  const StatItem({super.key, required this.value, required this.label});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          value,
+          style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+        Text(label),
+      ],
+    );
+  }
+}
+
+class ProfileStats extends StatelessWidget {
+  const ProfileStats({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: const [
+        StatItem(value: '12', label: 'Projects'),
+        StatItem(value: '120', label: 'Followers'),
+        StatItem(value: '80', label: 'Following'),
+      ],
+    );
+  }
+}
