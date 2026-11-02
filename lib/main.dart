@@ -64,18 +64,23 @@ return MaterialApp(
 
               const SizedBox(height: 20),
 
-              ElevatedButton.icon(
-                onPressed: () {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Fitur edit belum aktif pada modul statis.',
-                      ),
-                    ),
+              Builder(
+                builder: (buttonContext) {
+                  return ElevatedButton.icon(
+                    onPressed: () {
+                      ScaffoldMessenger.of(buttonContext).showSnackBar(
+                        const SnackBar(
+                          content: Text(
+                            'Fitur edit belum aktif pada modul statis.',
+                          ),
+                          duration: Duration(seconds: 3),
+                        ),
+                      );
+                    },
+                    icon: const Icon(Icons.edit),
+                    label: const Text('Edit Profil'),
                   );
                 },
-                icon: const Icon(Icons.edit),
-                label: const Text('Edit Profil'),
               ),
 
               const SizedBox(height: 24),
