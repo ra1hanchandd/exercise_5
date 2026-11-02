@@ -7,9 +7,10 @@ class MainApp extends StatelessWidget {
   MainApp({super.key});
   
   final String userName = 'Muhammad Raihan Chandra Pratama';
-  final String role = 'Ketua';
+  final String role = 'Mahasiswa Global Institute';
   final List<String> experiences = [
-    'Ketua Pelaksana PKKMB 2026', 
+    'Ketua Pelaksana PKKMB 2026',
+    'Anggota Badan Eksekutif Mahasiswa Global Institute',
   ];
   @override
   Widget build(BuildContext context) {
@@ -57,6 +58,7 @@ return MaterialApp(
               const SizedBox(height: 24),
               
               const ProfileStats(),
+
               
               const SizedBox(height: 24),
               
@@ -70,6 +72,27 @@ return MaterialApp(
                 label: const Text('Edit Profil'),
               ),
               const SizedBox(height: 24),
+
+              const SizedBox(height: 16),
+
+              const Text(
+                'Pengalaman',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+
+              const SizedBox(height: 12),
+
+              Expanded(
+                child: ListView.builder(
+                  itemCount: experiences.length,
+                  itemBuilder: (context, index) {
+                    return ListTile(
+                      leading: const Icon(Icons.work, color: Colors.blueAccent),
+                      title: Text(experiences[index]),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
