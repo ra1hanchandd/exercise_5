@@ -86,10 +86,7 @@ return MaterialApp(
                 child: ListView.builder(
                   itemCount: experiences.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      leading: const Icon(Icons.work, color: Colors.blueAccent),
-                      title: Text(experiences[index]),
-                    );
+                    return ExperienceCard(experience: experiences[index]);
                   },
                 ),
               ),

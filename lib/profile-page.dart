@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 class ProfileInfo extends StatelessWidget {
   ProfileInfo({super.key});
 
-  final String userName = "Alfan Fadillah Ramadhan";
-  final String role = "Student of Global Institute";
+  final String userName = "Muhammad Raihan Chandra Pratama";
+  final String role = "Mahasiswa Global Institute";
 
   final List<String> experiences = [
-    "Senior Mobile Legend Player",
-    "Most Listener Perunggu",
+    "Ketua Pelaksana PKKMB 2026",
+    "Anggota Badan Eksekutif Mahasiswa Global Institute",
   ];
 
   @override
@@ -103,6 +103,24 @@ class ProfileStats extends StatelessWidget {
         StatItem(value: '120', label: 'Followers'),
         StatItem(value: '80', label: 'Following'),
       ],
+    );
+  }
+}
+
+class ExperienceCard extends StatelessWidget {
+  final String experience;
+
+  const ExperienceCard({super.key, required this.experience});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      elevation: 3,
+      margin: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
+      child: ListTile(
+        leading: const Icon(Icons.work, color: Colors.blueAccent),
+        title: Text(experience),
+      ),
     );
   }
 }
