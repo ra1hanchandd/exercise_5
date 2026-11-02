@@ -27,68 +27,81 @@ return MaterialApp(
           backgroundColor: Colors.blueAccent,
           foregroundColor: Colors.white,
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(16.0),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20.0),
           child: Column(
-            children: [         
+            children: [
+              const SizedBox(height: 12),
+
               const CircleAvatar(
                 radius: 50,
                 backgroundColor: Colors.grey,
                 child: Icon(Icons.person, size: 50, color: Colors.white),
               ),
-              
-            
-              const SizedBox(width: 16),
-              
-              Column(
-                children: [
-                  Text(
-                    userName,
-                    style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    role,
-                    style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                    textAlign: TextAlign.center,
-                  ),
-                ],
+
+              const SizedBox(height: 16),
+
+              Text(
+                userName,
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
+
+              const SizedBox(height: 8),
+
+              Text(
+                role,
+                style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+                textAlign: TextAlign.center,
+              ),
+
               const SizedBox(height: 24),
-              
+
               const ProfileStats(),
 
-              
-              const SizedBox(height: 24),
-              
+              const SizedBox(height: 20),
+
               ElevatedButton.icon(
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Fitur edit belum aktif pada modul statis.'))
+                    const SnackBar(
+                      content: Text(
+                        'Fitur edit belum aktif pada modul statis.',
+                      ),
+                    ),
                   );
                 },
                 icon: const Icon(Icons.edit),
                 label: const Text('Edit Profil'),
               ),
+
               const SizedBox(height: 24),
 
-              const SizedBox(height: 16),
+              const Divider(),
 
-              const Text(
-                'Pengalaman',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              const SizedBox(height: 12),
+
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Pengalaman',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ),
 
               const SizedBox(height: 12),
 
-              Expanded(
-                child: ListView.builder(
-                  itemCount: experiences.length,
-                  itemBuilder: (context, index) {
-                    return ExperienceCard(experience: experiences[index]);
-                  },
-                ),
+              ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: const EdgeInsets.symmetric(vertical: 4),
+                itemCount: experiences.length,
+                itemBuilder: (context, index) {
+                  return ExperienceCard(experience: experiences[index]);
+                },
               ),
             ],
           ),
